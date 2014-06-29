@@ -1,0 +1,38 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box; 
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 100% "Nato Sans", sans-serif;
+
+  color: rgb(74, 72, 72);
+
+  background-color: #efeddf;
+}
+
+h1, h2, h3 {
+  color: #3F4944;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: lighten(#c30700, 5%);
+  }
+}
+
+a:active,
+a:focus,
+a:visited,
+button:active,
+button:focus,
+button:visited { outline: none; }
+
+.f-right { float: right; }

@@ -1,0 +1,47 @@
+<article class="post">
+	<h1><%= @post.titulo %></h1>
+
+	<p><%= @post.conteudo %></p>
+</article>
+
+<div class="comments">
+	<h2>Comentários</h2>
+	
+	<ol class="comments__list">
+		<% @post.comentarios.each do |comentario| %>
+			<li class="comments__item">
+				<%= image_tag('avatar.jpg', class: 'avatar') %>
+				<div class="comment__content">
+					<h3 class="comment__author">
+						<%= comentario.autor %>
+					</h3>
+
+					<p class="comment__text"><%= comentario.conteudo %></p>
+				</div>
+			</li>
+		<% end %>
+	</ol>
+</div>
+
+
+
+
+<h2>Adicione um comentário</h2>
+<%= form_for( [ @post, @post.comentarios.build ] ) do |f| %>
+	<div class="field">
+		<%= f.label :autor %> <br>
+		<%= f.text_field :autor %>
+	</div>
+	<div class="field">
+		<%= f.label :conteudo %> <br>
+		<%= f.text_area :conteudo %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
+
+<br>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
